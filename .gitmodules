@@ -1,0 +1,6 @@
+[submodule "py-pde"]
+	path = py-pde
+	url = git@github.com:zwicker-group/py-pde.git
+[submodule "py-phasesep"]
+	path = py-phasesep
+	url = git@github.com:zwicker-group/py-phasesep.git
