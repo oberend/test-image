@@ -1,11 +1,15 @@
-FROM condaforge/mambaforge AS build
+FROM condaforge/mambaforge
 
-# Copy dependencies
-COPY environment.yml /tmp/conda-tmp/
+ARG USERNAME=noroot
 
-# Install conda-pack and create environment from dependencies
-RUN mamba install conda-pack \
-    && mamba env create -f /tmp/conda-tmp/environment.yml
+COPY environment.yml /tmp/conda-tmp/environment.yml
+COPY py-pde /pypackages/py-pde
+COPY py-phasesep /pypackages/py-phasesep
 
-# Pack myenv
-RUN conda-pack -n myenv -o /tmp/conda-tmp/myenv.tar.gz
+RUN yes | mamba env update -n base -f /tmp/conda-tmp/environment.yml \
+    && rm -rf tmp/conda-tmp \
+    && conda clean -a
+
+ENV PYTHONPATH=/pypackages/py-pde:/pypackages/py-phasesep:${PYTHONPATH}
+
+RUN adduser ${USERNAME}

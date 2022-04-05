@@ -1,0 +1,3 @@
+import phasesep
+
+phasesep.CahnHilliardExtendedPDE()

@@ -1,8 +1,7 @@
 name: myenv
 channels:
   - conda-forge
-depndencies:
-  - python=3.9
+dependencies:
   - black
   - bokeh
   - dask
@@ -13,6 +12,7 @@ depndencies:
   - numpy
   - pandas
   - pylint
+  - python=3.9
   - scikit-image
   - scipy
   - sympy
