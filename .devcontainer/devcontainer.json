@@ -9,7 +9,8 @@
 			"/pypackages/py-pde",
 			"/pypackages/py-phasesep"
 		],
-		"python.linting.pylintEnabled": true
+		"python.linting.flake8Enabled": true,
+		"python.formatting.provider": "black"
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
